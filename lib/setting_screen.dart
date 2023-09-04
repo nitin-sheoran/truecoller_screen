@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:truecoller_screen/general_screen.dart';
+import 'package:truecoller_screen/util/string_const.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -9,7 +10,7 @@ class SettingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Settings',
+          StringConst.settingScreenTitleText,
           style: TextStyle(
             fontSize: 20,
           ),
