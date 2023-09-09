@@ -99,6 +99,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
                         ),
                       ],
                     ),
+                    Divider(),
                   ],
                 ),
               ),
