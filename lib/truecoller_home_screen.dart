@@ -24,8 +24,10 @@ class _TruecallerHomeScreenState extends State<TruecallerHomeScreen> {
     return SafeArea(
       child: Scaffold(
           body: Card(
-              child: Center(
-                  child: Column(children: [
+              child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(children: [
         Padding(
           padding: const EdgeInsets.only(
             left: 8,
@@ -40,20 +42,20 @@ class _TruecallerHomeScreenState extends State<TruecallerHomeScreen> {
               const Text(
                 'N K Sheoran',
                 style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (
-                    context,
-                  ) {
-                    return const SettingScreen();
-                  }));
+                    Navigator.push(context, MaterialPageRoute(builder: (
+                      context,
+                    ) {
+                      return const SettingScreen();
+                    }));
                 },
                 child: const Icon(
-                  Icons.settings,
+                    Icons.settings,
                 ),
               ),
             ],
@@ -72,25 +74,19 @@ class _TruecallerHomeScreenState extends State<TruecallerHomeScreen> {
         Container(
           height: 54,
           width: 60,
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 4,
-              color: Colors.white54,
-            ),
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
             color: Colors.black12,
-            borderRadius: BorderRadius.circular(
-              30,
-            ),
           ),
           child: const Center(
             child: Column(
               children: [
                 Text(
-                  'N',
-                  style: TextStyle(
-                    fontSize: 32,
-                    color: Colors.orange,
-                  ),
+                    'N',
+                    style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.orange,
+                    ),
                 ),
               ],
             ),
@@ -156,7 +152,7 @@ class _TruecallerHomeScreenState extends State<TruecallerHomeScreen> {
               Text(
                 'Upgrade to Premium',
                 style: TextStyle(
-                  fontSize: 16,
+                    fontSize: 16,
                 ),
               )
             ],
@@ -177,159 +173,169 @@ class _TruecallerHomeScreenState extends State<TruecallerHomeScreen> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 4,right: 4),
+            padding: const EdgeInsets.only(left: 4, right: 4),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: [
-                    DropdownButton<String>(
-                      padding: const EdgeInsets.only(
-                        left: 14,
-                      ),
-                      value: currentValue,
-                      onChanged: (String? item) {
-                        currentValue = item!;
-                        setState(() {});
-                      },
-                      items: list.map(
-                            (e) {
-                          return DropdownMenuItem(
-                            value: e,
-                            child: Text(e),
-                          );
+                    children: [
+                      DropdownButton<String>(
+                        padding: const EdgeInsets.only(
+                          left: 14,
+                        ),
+                        value: currentValue,
+                        onChanged: (String? item) {
+                          currentValue = item!;
+                          setState(() {});
                         },
-                      ).toList(),
-                    ),
-                    const SizedBox(
-                      width: 154,
-                    ),
-                    const Icon(
-                      Icons.share,
-                      size: 24,
-                    ),
-                  ],
+                        items: list.map(
+                          (e) {
+                            return DropdownMenuItem(
+                              value: e,
+                              child: Text(e),
+                            );
+                          },
+                        ).toList(),
+                      ),
+                      const SizedBox(
+                        width: 134,
+                      ),
+                      const Icon(
+                        Icons.share,
+                        size: 24,
+                      ),
+                    ],
                 ),
                 const SizedBox(
-                  height: 12,
-                ),
-                const Icon(
-                  Icons.gpp_good_outlined,
-                  size: 24,
-                  color: Colors.red,
-                ),
-                const SizedBox(
-                  height: 12,
+                    height: 12,
                 ),
                 const Row(
-                  children: [
-                    Text(
-                      'Spam calls identified',
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                    ),
-                    Text(
-                      'Time saved from',
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-                const Row(
-                  children: [
-                    SizedBox(
-                      width: 216,
-                    ),
-                    Text(
-                      'spammers',
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(
-                    4.0,
-                  ),
-                  child: Row(
                     children: [
                       Icon(
-                        Icons.search,
-                        size: 26,
-                        color: Colors.blue,
+                        Icons.gpp_good_outlined,
+                        size: 24,
+                        color: Colors.red,
                       ),
+                      SizedBox(
+                        width: 194,
+                      ),
+                      Icon(
+                        Icons.save_alt,
+                        color: Colors.green,
+                      ),
+                    ],
+                ),
+                const SizedBox(
+                    height: 12,
+                ),
+                const Row(
+                    children: [
                       Text(
-                        '80',
+                        'Spam calls identified',
                         style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
                         ),
                       ),
                       SizedBox(
-                        width: 164,
-                      ),
-                      Icon(
-                        Icons.gpp_good_outlined,
-                        size: 28,
-                        color: Colors.orangeAccent,
+                        width: 100,
                       ),
                       Text(
-                        '18',
+                        'Time saved from',
                         style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
                         ),
-                      )
+                      ),
                     ],
-                  ),
                 ),
                 const Row(
-                  children: [
-                    Text(
-                      'Unknown numbers identified',
-                      style: TextStyle(
-                        fontSize: 12,
+                    children: [
+                      SizedBox(
+                        width: 216,
                       ),
-                    ),
-                    SizedBox(
-                      width: 58,
-                    ),
-                    Text(
-                      'Messages moved',
-                      style: TextStyle(
-                        fontSize: 12,
+                      Text(
+                        'spammers',
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
                       ),
+                    ],
+                ),
+                const SizedBox(
+                    height: 12,
+                ),
+                const Padding(
+                    padding: EdgeInsets.all(
+                      4.0,
                     ),
-                  ],
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.search,
+                          size: 26,
+                          color: Colors.blue,
+                        ),
+                        Text(
+                          '80',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 164,
+                        ),
+                        Icon(
+                          Icons.gpp_good_outlined,
+                          size: 28,
+                          color: Colors.orangeAccent,
+                        ),
+                        Text(
+                          '18',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
                 ),
                 const Row(
-                  children: [
-                    SizedBox(
-                      width: 216,
-                    ),
-                    Text(
-                      'spam',
-                      style: TextStyle(
-                        fontSize: 12,
+                    children: [
+                      Text(
+                        'Unknown numbers identified',
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: 58,
+                      ),
+                      Text(
+                        'Messages moved',
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                ),
+                const Row(
+                    children: [
+                      SizedBox(
+                        width: 216,
+                      ),
+                      Text(
+                        'spam',
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
                 )
               ],
             ),
           ),
         ),
         const SizedBox(
-          height:4,
+          height: 4,
         ),
         Container(
           height: 234,
@@ -346,100 +352,101 @@ class _TruecallerHomeScreenState extends State<TruecallerHomeScreen> {
             children: [
               Padding(
                 padding: EdgeInsets.all(
-                  12.0,
+                    12.0,
                 ),
                 child: Row(
-                  children: [
-                    Icon(
-                      Icons.gpp_good_outlined,
-                      size: 28,
-                      color: Colors.red,
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'Manage blocking',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    children: [
+                      Icon(
+                        Icons.gpp_good_outlined,
+                        size: 28,
+                        color: Colors.red,
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        'Manage blocking',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(
-                  16.0,
+                    16.0,
                 ),
                 child: Row(
-                  children: [
-                    Icon(
-                      Icons.auto_delete_rounded,
-                      size: 28,
-                      color: Colors.green,
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'Inbox cleaner',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    children: [
+                      Icon(
+                        Icons.auto_delete_rounded,
+                        size: 28,
+                        color: Colors.green,
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        'Inbox cleaner',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(
-                  16.0,
+                    16.0,
                 ),
                 child: Row(
-                  children: [
-                    Icon(
-                      Icons.remove_red_eye_outlined,
-                      size: 28,
-                      color: Colors.orange,
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'Who viewed my profile',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    children: [
+                      Icon(
+                        Icons.remove_red_eye_outlined,
+                        size: 28,
+                        color: Colors.orange,
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        'Who viewed my profile',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(
-                  16.0,
+                    16.0,
                 ),
                 child: Row(
-                  children: [
-                    Icon(
-                      Icons.person_search_rounded,
-                      size: 28,
-                      color: Colors.blue,
-                    ),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text(
-                      'Who searched for me',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                    children: [
+                      Icon(
+                        Icons.person_search_rounded,
+                        size: 28,
+                        color: Colors.blue,
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Text(
+                        'Who searched for me',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                 ),
               ),
             ],
           ),
         ),
-      ])))),
+      ]),
+                  )))),
     );
   }
 }
