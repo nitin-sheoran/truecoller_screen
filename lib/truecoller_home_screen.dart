@@ -47,15 +47,14 @@ class _TruecallerHomeScreenState extends State<TruecallerHomeScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (
-                              context,
-                            ) {
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
                               return const SettingScreen();
                             }));
                           },
-                          child: const Icon(
+                          icon: const Icon(
                             Icons.settings,
                           ),
                         ),
